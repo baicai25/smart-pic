@@ -254,7 +254,7 @@ public class PictureController {
      * 分页获取图片列表（封装类）
      */
     @PostMapping("/list/page/vo")
-    @SaSpaceCheckPermission(value = SpaceUserPermissionConstant.PICTURE_VIEW)
+    @SaSpaceCheckPermission(value = SpaceUserPermissionConstant.PICTURE_VIEW, allowAnonymous = true)
     public BaseResponse<Page<PictureVO>> listPictureVOByPage(@RequestBody PictureQueryRequest pictureQueryRequest,
                                                              HttpServletRequest request) {
         long current = pictureQueryRequest.getCurrent();
@@ -441,7 +441,7 @@ public class PictureController {
      * 以图搜图
      */
     @PostMapping("/search/picture")
-    @SaSpaceCheckPermission(value = SpaceUserPermissionConstant.PICTURE_VIEW)
+    @SaSpaceCheckPermission(value = SpaceUserPermissionConstant.PICTURE_VIEW, allowAnonymous = true)
     public BaseResponse<List<ImageSearchResult>> searchPictureByPicture(@RequestBody SearchPictureByPictureRequest searchPictureByPictureRequest) {
         ThrowUtils.throwIf(searchPictureByPictureRequest == null, ErrorCode.PARAMS_ERROR);
         Long pictureId = searchPictureByPictureRequest.getPictureId();
@@ -456,7 +456,7 @@ public class PictureController {
      * 按照颜色搜索
      */
     @PostMapping("/search/color")
-    @SaSpaceCheckPermission(value = SpaceUserPermissionConstant.PICTURE_VIEW)
+    @SaSpaceCheckPermission(value = SpaceUserPermissionConstant.PICTURE_VIEW, allowAnonymous = true)
     public BaseResponse<List<PictureVO>> searchPictureByColor(@RequestBody SearchPictureByColorRequest searchPictureByColorRequest, HttpServletRequest request) {
         ThrowUtils.throwIf(searchPictureByColorRequest == null, ErrorCode.PARAMS_ERROR);
         String picColor = searchPictureByColorRequest.getPicColor();

@@ -42,11 +42,11 @@ public class AuthInterceptor {
             //应该不会发生
             throw new BusinessException(ErrorCode.NOT_LOGIN_ERROR, "怎么会进到这里面呢");
         }
-        //要求必须是管理员权限,没有就报错
+        //要求必须是管理员权限,没有就报错      真tm抽象(权限校验要求管理员并且用户权限不是管理员的报错)
         if (UserRoleEnum.ADMIN.equals(mustRoleEnum) && !UserRoleEnum.ADMIN.equals(userRoleEnum)) {
             throw new BusinessException(ErrorCode.NOT_LOGIN_ERROR);
         }
-        //通过校验后放行
+        //通过校验后放行   (应该就是正常的权限校验通过后的)
         return joinPoint.proceed();
     }
 }

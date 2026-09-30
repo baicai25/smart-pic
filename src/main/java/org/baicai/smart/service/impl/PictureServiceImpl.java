@@ -267,6 +267,7 @@ public class PictureServiceImpl extends ServiceImpl<PictureMapper, Picture>
         if (inputSource instanceof String) {
             pictureUploadTemplate = urlPictureUpload;
         }
+        //调用我们自己封装的图片上传方法,包含了缩略图处理等
         UploadPictureResult uploadPictureResult = pictureUploadTemplate.uploadPicture(inputSource, uploadPathPrefix);
         // 构造要入库的图片信息
         Picture picture = new Picture();
@@ -427,7 +428,7 @@ public class PictureServiceImpl extends ServiceImpl<PictureMapper, Picture>
         queryWrapper.lt(ObjUtil.isNotEmpty(endEditTime), "editTime", endEditTime);
         // JSON 数组查询
         if (CollUtil.isNotEmpty(tags)) {
-            /* and (tag like "%\"Java\"%" and like "%\"Python\"%") */
+            /* and (tag like   "%\"Java\"%"   and like "%\"Python\"%") */
             for (String tag : tags) {
                 queryWrapper.like("tags", "\"" + tag + "\"");
             }

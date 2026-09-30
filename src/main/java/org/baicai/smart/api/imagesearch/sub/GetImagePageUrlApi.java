@@ -75,7 +75,7 @@ public class GetImagePageUrlApi {
             if (StrUtil.isBlank(searchResultUrl)) {
                 throw new BusinessException(ErrorCode.OPERATION_ERROR, "未返回有效的结果地址");
             }*/
-            String searchResultUrl = "https://graph.baidu.com/s?card_key=&entrance=GENERAL&extUiData%5BisLogoShow%5D=1&f=all&isLogoShow=1&session_id=3717292902148093323&sign=126346a884a7974e2b35501775100317&tpl_from=pc";
+            String searchResultUrl = "https://graph.baidu.com/s?card_key=&entrance=GENERAL&extUiData%5BisLogoShow%5D=1&f=all&isLogoShow=1&session_id=4504169038865647234&sign=126eba0d87b164422f3bf01781688587&tpl_from=pc";
             return searchResultUrl;
         } catch (Exception e) {
             log.error("调用百度以图搜图接口失败", e);

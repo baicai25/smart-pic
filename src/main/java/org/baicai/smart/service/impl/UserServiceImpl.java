@@ -171,6 +171,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         }
         // 登出,移除登录态
         request.getSession().removeAttribute(UserConstant.USER_LOGIN_STATE);
+        StpKit.SPACE.logout();
         return true;
     }
 
@@ -205,7 +206,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         return user != null && UserRoleEnum.ADMIN.getValue().equals(user.getUserRole());
     }
 }
-
 
 
 
